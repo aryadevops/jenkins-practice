@@ -1,8 +1,15 @@
 pipeline {
     agent { node { label 'AGENT-1' } }
+    options {
+        ansiColor('xterm')
+    }
     stages {
         stage('Build') {
             steps {
+                sh '''
+                    ls -ltr
+                    pwd
+                '''
                 echo "Build"
                 echo "this is from webhook trigger"
             }
@@ -10,6 +17,11 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Test"
+            }
+        }
+        stage(Approve){
+            steps{
+                input "Shell I Apply"
             }
         }
         stage('Deploy') {
