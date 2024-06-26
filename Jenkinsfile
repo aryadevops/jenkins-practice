@@ -3,8 +3,15 @@ pipeline {
     options {
         ansiColor('xterm')
     }
+    // Global decleration of variables,we can access any where
+    environment { 
+        User = 'Arun'
+    }
     stages {
         stage('Build') {
+            environment { 
+                Password = 'Arun@123'
+            }
             steps {
                 sh '''
                     ls -ltr
@@ -12,11 +19,15 @@ pipeline {
                 '''
                 echo "Build"
                 echo "this is from webhook trigger"
+                echo " User name = $User"
+                echo " Password = $Password"
             }
         }
         stage('Test') {
             steps {
                 echo "Test"
+                echo " Test Username = $User"
+                echo " Test Password = $Password"    
             }
         }
         stage(Approve){
