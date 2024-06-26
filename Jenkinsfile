@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo "Test"
                 //echo " Test Username = $User"
-                echo " Test Password = $Password"    
+                //echo " Test Password = $Password"    
             }
         }
         stage('Parameters') {
