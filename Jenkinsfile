@@ -26,7 +26,7 @@ pipeline {
                 '''
                 echo "Build"
                 echo "this is from webhook trigger"
-                ?//echo " User name = $User"
+                //echo " User name = $User"
                 echo " Password = $Password"
             }
         }
